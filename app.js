@@ -4,14 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const Guess1btn = document.getElementById('guess');
     const Guess2btn = document.getElementById('guess-again-w'); 
     const Guess3btn = document.getElementById('guess-again-w2'); 
-    const inputBoxes = document.querySelectorAll('#inputbox-a, #inputbox-w, #inputbox-w2');
+    const inputBoxes = document.querySelectorAll('.inputbox-a, .inputbox-w, .inputbox-w2');
     const restartButtons = document.querySelectorAll('.guess-again-w3, .guess-again-r');
-    const numberInputs = document.querySelectorAll('input[type="number"]');
 
     let correctAnswer = Math.floor(Math.random() * 100) + 1;
 
     function showSection(sectionID) { 
-        sections.forEach(section => section.style.display = 'none');
+        sections.forEach(section => section.style.display = 'none'); 
         document.getElementById(sectionID).style.display = 'inherit'; 
     }
 
@@ -24,50 +23,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const value = parseInt(inputBox.value);
         const min = parseInt(inputBox.getAttribute('min'));
         const max = parseInt(inputBox.getAttribute('max'));
-
-        if (value < min || value > max) {
-            inputBox.value = Math.min(Math.max(value, min), max);
-            alert('Please enter a number between ' + min + ' and ' + max + '.');
+        if (isNaN(value) || value < min || value > max) {
+            alert('Please enter a valid number between ' + min + ' and ' + max + '.');
             return false;
         }
         return true;
     }
 
-    function updateGuessButtons() {
-        const isValid = Array.from(inputBoxes).every(inputBox => validateInput(inputBox));
-        Guess1btn.disabled = !isValid;
-        Guess2btn.disabled = !isValid;
-        Guess3btn.disabled = !isValid;
-    }
-
-    inputBoxes.forEach(inputBox => {
-        inputBox.addEventListener('input', function(event) {
-            const value = parseInt(this.value);
-            const min = parseInt(this.getAttribute('min'));
-            const max = parseInt(this.getAttribute('max'));
-            const sectionID = this.getAttribute('data-section');
-
-            if (value < min || value > max || isNaN(value)) {
-                event.preventDefault(); 
-                this.value = ''; 
-                alert('Please enter a valid number between ' + min + ' and ' + max + '.');
-            }
-        });
-    });
-
-    numberInputs.forEach(input => {
-        input.addEventListener('input', function() {
-            this.value = this.value.replace(/\D/g, '');
-        });
-    });
-    startGameButton.addEventListener('click', () => {
-        showSection('play');
-        updateGuessButtons();
-    }); 
+    startGameButton.addEventListener('click', () => showSection('play')); 
 
     Guess1btn.addEventListener('click', () => { 
-        const guess1 = parseInt(document.getElementById('inputbox-a').value); 
+        const inputBox = document.getElementById('inputbox-a');
+        if (!validateInput(inputBox)) return;
+
+        const guess1 = parseInt(inputBox.value);
         if (guess1 === correctAnswer) {
+            document.getElementById('guess4display').textContent = guess1; // Display the correct guess
             showSection('right'); 
         } else {
             document.getElementById('guess1display').textContent = guess1; 
@@ -76,8 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     Guess2btn.addEventListener('click', () => { 
-        const guess2 = parseInt(document.getElementById('inputbox-w').value); 
+        const inputBox = document.getElementById('inputbox-w');
+        if (!validateInput(inputBox)) return;
+
+        const guess2 = parseInt(inputBox.value);
         if (guess2 === correctAnswer) { 
+            document.getElementById('guess4display').textContent = guess2; // Display the correct guess
             showSection('right'); 
         } else {
             document.getElementById('guess2display').textContent = guess2; 
@@ -86,23 +61,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     Guess3btn.addEventListener('click', () => { 
-        const guess2 = parseInt(document.getElementById('inputbox-w2').value); 
-        if (guess2 === correctAnswer) { 
+        const inputBox = document.getElementById('inputbox-w2');
+        if (!validateInput(inputBox)) return;
+
+        const guess3 = parseInt(inputBox.value);
+        if (guess3 === correctAnswer) { 
+            document.getElementById('guess4display').textContent = guess3; // Display the correct guess
             showSection('right'); 
         } else {
-            document.getElementById('guess3display').textContent = guess2; 
+            document.getElementById('guess3display').textContent = guess3; 
             showSection('wrong_3'); 
         }
     });
     
-     restartButtons.forEach(button => {
+    restartButtons.forEach(button => {
         button.addEventListener('click', restartGame);
-    });
-
-    document.getElementById('right').addEventListener('transitionend', () => {
-        if (lastGuess !== undefined) {
-            document.getElementById('guess4display').textContent = lastGuess;
-        }
     });
 
     showSection('welcome'); 
