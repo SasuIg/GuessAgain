@@ -68,6 +68,7 @@ h1 {
     justify-content: center;
     text-align: center;
     max-height: fit-content;
+    display: none;
 }
 
 #play h2 {
@@ -134,12 +135,13 @@ label {
 
 
 /* WRONG */
-#wrong_1, #wrong_2 {
+#wrong_1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: none;
 }
 
 #wrong_1 h3 {
@@ -209,6 +211,7 @@ label{
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: none;
 }
 
 #wrong_2 h3 {
@@ -283,6 +286,7 @@ label{
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: none;
 }
 
 #wrong_3 h3 {
@@ -356,7 +360,8 @@ label{
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative
+    position: relative;
+    display:none;
 }
 h2 {
     font-size: 100px;
