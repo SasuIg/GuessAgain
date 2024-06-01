@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const Guess3btn = document.getElementById('guess-again-w2'); 
     const inputBoxes = document.querySelectorAll('#inputbox-a, #inputbox-w, #inputbox-w2');
     const restartButtons = document.querySelectorAll('.guess-again-w3, .guess-again-r');
+    const numberInputs = document.querySelectorAll('input[type="number"]');
 
     let correctAnswer = Math.floor(Math.random() * 100) + 1;
 
@@ -40,12 +41,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     inputBoxes.forEach(inputBox => {
-        inputBox.addEventListener('input', () => {
-            validateInput(inputBox);
-            updateGuessButtons();
+        inputBox.addEventListener('input', function(event) {
+            const value = parseInt(this.value);
+            const min = parseInt(this.getAttribute('min'));
+            const max = parseInt(this.getAttribute('max'));
+            const sectionID = this.getAttribute('data-section');
+
+            if (value < min || value > max || isNaN(value)) {
+                event.preventDefault(); // Prevent the default button click behavior
+                this.value = ''; // Clear the input field
+                alert('Please enter a valid number between ' + min + ' and ' + max + '.');
+            }
         });
     });
 
+    numberInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            // Remove non-numeric characters from input value
+            this.value = this.value.replace(/\D/g, '');
+        });
+    });
     startGameButton.addEventListener('click', () => {
         showSection('play');
         updateGuessButtons();
@@ -81,8 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    restartButtons.forEach(button => {
+     restartButtons.forEach(button => {
         button.addEventListener('click', restartGame);
+    });
+
+    document.getElementById('right').addEventListener('transitionend', () => {
+        if (lastGuess !== undefined) {
+            document.getElementById('guess4display').textContent = lastGuess;
+        }
     });
 
     showSection('welcome'); 
