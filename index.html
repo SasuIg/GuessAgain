@@ -24,7 +24,7 @@
         <small class="tip">Tip: It's between 1-100</small>
         <div id="input_container-a" class="input_container-a">
             <label for="inputbox-a">Enter your Guess here:</label>
-            <input type="number" class="inputbox-a" id="inputbox-a" min="1" max="1" placeholder="0" />
+            <input type="number" class="inputbox-a" id="inputbox-a" min="1" max="100" placeholder="0" />
         </div>
         <small class="turn1"> you get 3 tries <span> This is 1 of 3 </span></small>
         <button id="guess" class="guess">Guess</button>
@@ -35,11 +35,11 @@
     <section id="wrong_1" class="section">
         <h3>No, that's not right!</h3>
         <br>
-        <p><span id="guess1display"></span></p>
+        <p>You guessed: <span id="guess1display"></span></p>
         <br>
         <div id="input_container-w" class="input_container-w">
             <label for="inputbox-w">Enter new Guess here:</label>
-            <input type="number" class="inputbox-w" id="inputbox-w" min="1" max="1" placeholder="0" />
+            <input type="number" class="inputbox-w" id="inputbox-w" min="1" max="100" placeholder="0" />
         </div>
         <small class="turn2"> you get 3 tries <span> This is 2 of 3 </span></small>
         <button id="guess-again-w" class="guess-again-w">Guess!</button>
@@ -49,11 +49,11 @@
     <section id="wrong_2" class="section">
         <h3>Noppity nope! Last chance!</h3>
         <br>
-        <p>You guessed <span id="guess2display"></span></p>
+        <p>You guessed: <span id="guess2display"></span></p>
         <br>
         <div id="input_container-w2" class="input_container-w2">
             <label for="inputbox-w2">Enter new Guess here:</label>
-            <input type="number" class="inputbox-w2" id="inputbox-w2" min="1" max="1" placeholder="0" />
+            <input type="number" class="inputbox-w2" id="inputbox-w2" min="1" max="100" placeholder="0" />
             <br>
          </div>
         <small class="turn3"> You get 3 tries <span> This is 3 of 3 </span></small>
