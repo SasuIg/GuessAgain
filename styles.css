@@ -366,7 +366,7 @@ label{
 h2 {
     font-size: 100px;
     margin-bottom: 1%;
-    /* z-index:10; */
+
 }
 
 p{
@@ -382,8 +382,6 @@ h4 {
     width:100vw;
     height: 100vh;
     position: absolute;
-    /* top:0;
-    left:0; */
     z-index: -1;
     opacity: 80%;
 }

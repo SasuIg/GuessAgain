@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionID = this.getAttribute('data-section');
 
             if (value < min || value > max || isNaN(value)) {
-                event.preventDefault(); // Prevent the default button click behavior
-                this.value = ''; // Clear the input field
+                event.preventDefault(); 
+                this.value = ''; 
                 alert('Please enter a valid number between ' + min + ' and ' + max + '.');
             }
         });
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     numberInputs.forEach(input => {
         input.addEventListener('input', function() {
-            // Remove non-numeric characters from input value
             this.value = this.value.replace(/\D/g, '');
         });
     });
