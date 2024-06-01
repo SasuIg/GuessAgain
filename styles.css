@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Overpass", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+/* START */
+#welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 100px;
+    margin-bottom: 10%;
+}
+
+
+.start {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(0, 0, 0);
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.start:hover{
+    background-color: rgb(41, 41, 41);
+    transform: scale(1.05);
+
+}
+
+.start:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
+
+
+/* PLAY */
+#play {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-height: fit-content;
+}
+
+#play h2 {
+    font-size: 65px;
+    margin-bottom: 3%;
+}
+
+
+.input_container-a {
+    margin: auto;
+    padding: 25px 30px 20px 25px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 2.5%;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+
+.inputbox-a {
+    padding: 10px;
+    width: 13%;
+    font-size: 20px;
+    font-weight: bold;
+    border:5px solid red;
+    color: red;
+}
+#play .turn1 {
+    margin-bottom: 10%;
+}
+.guess {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.guess:hover{
+    background-color: rgb(46, 46, 46);
+    transform: scale(1.05);
+
+}
+
+.guess:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
+
+
+
+/* WRONG */
+#wrong_1, #wrong_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#wrong_1 h3 {
+    font-size: 65px;
+    color: red;
+    margin-bottom: 5%;
+}
+
+.input_container-w {
+    margin: auto;
+    padding: 25px 30px 20px 25px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+    margin-bottom: 2%;
+}
+
+label{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.inputbox-w {
+    padding: 10px;
+    width: 18%;
+    font-size: 20px;
+    font-weight: bold;
+    border:5px solid red;
+    color: red;
+}
+#wrong_1 .turn2{
+    margin-bottom: 10%;
+}
+.guess-again-w {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.guess-again-w:hover{
+    background-color: rgb(46, 46, 46);
+    transform: scale(1.05);
+
+}
+
+.guess-again-w:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
+
+/* WRONG 2*/
+#wrong_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#wrong_2 h3 {
+    font-size: 65px;
+    color: red;
+    margin-bottom: 5%;
+}
+
+#wrong_2 p {
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+.input_container-w2 {
+    margin: auto;
+    padding: 25px 30px 20px 25px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+    margin-bottom: 1%;
+}
+
+label{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.inputbox-w2 {
+    padding: 10px;
+    width: 18%;
+    font-size: 20px;
+    font-weight: bold;
+    border:5px solid red;
+    color: red;
+}
+.turn3 {
+    margin-bottom: 10%;
+}
+.guess-again-w2 {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.guess-again-w2:hover{
+    background-color: rgb(46, 46, 46);
+    transform: scale(1.05);
+
+}
+
+.guess-again-w2:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
+
+/* WRONG 3*/
+#wrong_3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#wrong_3 h3 {
+    font-size: 65px;
+    color: red;
+    margin-bottom: 5%;
+}
+
+#wrong_3 p {
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+.input_container-w3 {
+    margin: auto;
+    padding: 25px 30px 20px 25px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 25%;
+    margin-bottom: 1%;
+}
+
+label{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.inputbox-w3 {
+    padding: 10px;
+    width: 30%;
+    font-size: 20px;
+    font-weight: bold;
+    border:5px solid red;
+    color: red;
+}
+.over {
+    margin-bottom: 10%;
+}
+.guess-again-w3 {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.guess-again-w3:hover{
+    background-color: rgb(46, 46, 46);
+    transform: scale(1.05);
+
+}
+
+.guess-again-w3:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
+/* RIGHT */
+#right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative
+}
+h2 {
+    font-size: 100px;
+    margin-bottom: 1%;
+    /* z-index:10; */
+}
+
+p{
+    margin-bottom: 10%;
+    font-weight: bold;
+}
+h4 {
+    font-size: 30px;
+    margin-bottom: 10%;
+}
+
+#success-gif{
+    width:100vw;
+    height: 100vh;
+    position: absolute;
+    /* top:0;
+    left:0; */
+    z-index: -1;
+    opacity: 80%;
+}
+
+.guess-again-r {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: whitesmoke;
+    transition:all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.guess-again-r:hover{
+    background-color: rgb(214, 9, 9);
+    transform: scale(1.05);
+
+}
+
+.guess-again-r:active{
+    background-color: black;
+    transform: scale(0.95);
+
+}
